@@ -5,8 +5,48 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.aseara.github</groupId>
-    <artifactId>ooize-test</artifactId>
+    <artifactId>oozie-test</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <deploy.dir>${artifactId}</deploy.dir>
+        <hadoop.version>2.6.0-cdh5.11.1</hadoop.version>
+    </properties>
+
+
+    <repositories>
+        <repository>
+            <id>maven-hadoop</id>
+            <name>Hadoop Releases</name>
+            <url>https://repository.cloudera.com/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <scope>provided</scope>
+            <version>${hadoop.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <attach>false</attach>
+                    <finalName>example</finalName>
+                    <descriptors>
+                        <descriptor>src/main/assemblies/example.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
