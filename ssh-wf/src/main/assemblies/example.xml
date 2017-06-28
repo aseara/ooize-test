@@ -33,7 +33,7 @@
         </fileSet>
         <fileSet>
             <directory>${basedir}/src/main/client</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>${deploy.dir}/</outputDirectory>
         </fileSet>
     </fileSets>
 
